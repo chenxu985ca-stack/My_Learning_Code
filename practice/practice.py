@@ -40,3 +40,8 @@ print(split_words)
 
 user_id = "chenxu-985-ca"
 print(user_id[-4:])
+<<<<<<< HEAD
+=======
+
+print("Hello, World")
+>>>>>>> 57f3a2f (first commit)

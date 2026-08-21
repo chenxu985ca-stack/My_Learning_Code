@@ -585,5 +585,8 @@ floor_div_floats = my_float_2 // my_float_1 #2.0
 #### 幂运算**
 幂运算将一个数提升到另一个数的幂，使用双星号操作符（**）:
 ```ruby
+<<<<<<< HEAD
 
+=======
+>>>>>>> 57f3a2f (first commit)
 ```
