@@ -1,4 +1,4 @@
-## Python学习的Markdown
+## Python基础
 ### 什么是Python？
 Python 是一种通用编程语言，以其简洁和易用性而著称。
 #### 用途
@@ -105,68 +105,78 @@ Python 的动态类型特性使编码更快速、更灵活，但也可能导致�
 
 ---
 
-### Python的常用数据类型
+#### Python的常用数据类型
+##### `Integer`
 - `Integer`: 没有小数点的整数, 例如：`10` 或者 `-5`。
 ```ruby
 my_integer_var = 10
 print("Integer: ",my_integer_var)#输出Integer: 10
 ```
+##### `Float`
 - `Float`: 带小数点的数字，例如`4.21`或者`-3.14`。
 ```ruby
 my_Float_var = 3.141
 print("Float: ",my_Float_var)#输出Float: 3.141
 ```
+##### `String`
 - `String`: 由**单引号或双引号**括起的一串字符，例如 `'Hello world!'`。
 ```ruby
     my_string_var = 'hello'
     print('String: ', my_string_var) # String: hello
 ```
+##### `Set`
 - `Set`: 由**花括号**包围的一个==无序的唯一元素==集合，例如 `{0.5, 4, 'apple'}`。
 ```ruby
 my_set_var = {7, 'hello', 8.5}
 print('Set:', my_set_var) # Set: {8.5, 'hello', 7} (顺序各不相同)
 ```
+##### `Dictionary`
 - `Dictionary`: 由**花括号**包围的一组==键值对==，例如 {'name': 'John Doe', 'age': 28}。
 ```ruby
 my_dictionary_var = {'name': 'lee', 'age': 24}
 print('Dictionary:', my_dictionary_var) # Dictionary: {'name': 'lee', 'age': 24}
 ```
+##### `Tuple`
 - `Tuple`: 一种不可变的==有序集合==，用**括号**括起，例如 ('apple', 4.5, 7)。
 ```ruby
 my_tuple_var = (7, 'hello', 8.5)
 print('Tuple:', my_tuple_var) # Tuple: (7, 'hello', 8.5)
 ```
+##### `Range`
 - `Range`: 一组数字，常用于循环中，例如 range(5)。
 ```ruby
 my_range_var = range(5)
 print('Range:', my_range_var) # Range: range(0, 5)
 ```
+##### `List`
 - `List`:用[ ]包围的，一种==有序==的元素集合，支持多种数据类型。
 ```ruby
  my_list_var = [22, 'Hello world', 3.14, True]
 print('List:', my_list_var) # List: [22, 'Hello world', 3.14, True]
 ```
+##### `None`
 - `None`：表示值不存在的特殊值。
 ```ruby
 my_none_var = None
 print('None:', my_none_var) # None: None
 ```
----
 
-### 查看变量的类型
+**如果你想查看变量的类型：**
 #### `type()` 函数
 想要查看变量的类型，可以使用`type()`函数：
 ```ruby
 developer = “lee”
 print(type(developer))# <class 'str'>
 ```
+
 `type()`函数的参数不能为空
+
 ```ruby
 type()
 #会报下面这个错误
 #TypeError: type() takes 1 or 3 arguments
 ```
-下面是我们所学到的所有数据类型，type( )函数对他们的输出结果：
+下面是我们所学到的所有数据类型，`type()`函数对他们的输出结果：
 ```ruby
 my_integer_var = 10
 print(type(my_integer_var))  # <class 'int'>
@@ -214,7 +224,7 @@ isinstance(account_balance,(int,float))
 ---
 
 ### 什么是字符串，以及字符串的不可变性是什么？
-字符串是由``' '``或`" "`包围的一系列字符。
+字符串是由``''``或`""`包围的一系列字符。
 #### 字符串的符号表达
 ```ruby
 my_str_one = "one"
@@ -268,7 +278,7 @@ my_str = "Hello world"
 print(my_str[0])  # H
 print(my_str[6])  # w
 ```
-负数索引也是允许的，因此你可以通过 -1 获取任意字符串的最后一个字符，-2 获取倒数第二个字符，以此类推：
+负数索引也是允许的，因此你可以通过 `-1` 获取任意字符串的最后一个字符，`-2` 获取倒数第二个字符，以此类推：
 ```ruby
 my_str = "Hello world"
 
@@ -292,7 +302,7 @@ greeting[0] = 'H' # TypeError: 'str' object does not support item assignment
 
 ---
 
-### 什么是字符串拼接和字符串插值？
+### 什么是字符串拼接、字符串插值和字符串切片？
 在处理字符串时，将不同的文本片段组合在一起是一种常见的操作，你经常会遇到这种情况。
 #### 连接字符串
 在 Python 中，你可以使用加号`+`运算符将多个字符串连接在一起。这个过程称为字符串拼接。以下是使用加号运算符连接两个字符串的方法：
@@ -304,7 +314,7 @@ str_plus_str = my_str_1 + ' ' + my_str_2
 print(str_plus_str) #输出Hello World
 ```
 #### 重复字符串
-你也可以使用 * 运算符将字符串乘以一个整数来重复字符串，字符串将被指定次数重复：
+你也可以使用 `*` 运算符将字符串乘以一个整数来重复字符串，字符串将被指定次数重复：
 ```ruby
 sound = 'ha'
 repeated_sound = sound * 3
@@ -353,7 +363,7 @@ print(f'The sum of {num1} and {num2} is {num1 + num2}')
 # The sum of 5 and 10 is 15
 # 数字 5 加 10 等于 15
 ```
-请注意，您无需使用 str() 函数将非字符串类型进行转换。在上面的例子中，`age`、`num1` 和 `num2` 变量的值在插值过程中会自动被转换为字符串。
+请注意，您无需使用 `str()` 函数将非字符串类型进行转换。在上面的例子中，`age`、`num1` 和 `num2` 变量的值在插值过程中会自动被转换为字符串。
 #### 什么是字符串切片及如何切片？
 字符串切片允许你提取字符串的一部分，或仅处理其特定区域。以下是基本语法：
 ```ruby
@@ -390,7 +400,6 @@ print(my_str[:])  # Hello world
 ```
 除了起始和结束索引外，还有一个可选的步长参数，用于指定切片中每个索引之间的增量。
 
-Here's the syntax for that:
 这是该语法的写法：
 ```ruby
 string[start:stop:step]
@@ -410,6 +419,7 @@ print(my_str[::-1]) # dlrow olleH
 
 ### 有哪些常见的字符串方法？
 Python 提供了多种内置方法，可用于操作字符串，包括但不限于以下内容：
+#### `upper`
 - `upper()`：返回一个所有字符转换为大写的字符串。
 ```ruby
 my_str = 'hello world'
@@ -417,6 +427,7 @@ my_str = 'hello world'
 uppercase_my_str = my_str.upper()
 print(uppercase_my_str)  # HELLO WORLD
 ```
+#### `lower()`
 - `lower()`：返回一个所有字符转换为小写的字符串。
 ```ruby
 my_str = 'Hello World'
@@ -424,6 +435,7 @@ my_str = 'Hello World'
 lowercase_my_str = my_str.lower()
 print(lowercase_my_str)  # hello world
 ```
+#### `strip()`
 - `strip()`：返回一个移除指定前后字符的新字符串。如果未传入参数，则移除首尾的空白字符。
 ```ruby
 my_str = '  hello world  '
@@ -431,6 +443,7 @@ my_str = '  hello world  '
 trimmed_my_str = my_str.strip()
 print(trimmed_my_str)  # "hello world"
 ```
+#### `replace()`
 - `replace(old, new)`：返回一个新字符串，其中所有旧字符串被新字符串替换。
 ```ruby
 my_str = 'hello world'
@@ -438,6 +451,7 @@ my_str = 'hello world'
 replaced_my_str = my_str.replace('hello', 'hi')
 print(replaced_my_str)  # hi world
 ```
+#### `split()`
 - `split(separator)`：根据指定的分隔符将字符串拆分为字符串列表。如果未指定分隔符，则按空格进行拆分。
 ```ruby
 my_str = 'hello world'
@@ -445,6 +459,7 @@ my_str = 'hello world'
 split_words = my_str.split()
 print(split_words)  # ['hello', 'world']
 ```
+#### `join()`
 - `join(iterable)`：将可迭代对象的元素用分隔符连接成一个字符串。
 ```ruby
 my_list = ['hello', 'world']
@@ -452,6 +467,7 @@ my_list = ['hello', 'world']
 joined_my_str = ' '.join(my_list)
 print(joined_my_str)  # hello world
 ```
+#### `startswith()`
 - `startswith(prefix)`：返回一个布尔值，表示字符串是否以指定前缀开头。
 ```ruby
 my_str = 'hello world'
@@ -459,6 +475,7 @@ my_str = 'hello world'
 starts_with_hello = my_str.startswith('hello')
 print(starts_with_hello)  # True
 ```
+#### `endswith()`
 - `endswith(suffix)`：返回一个布尔值，表示字符串是否以指定的后缀结尾。
 ```ruby
 my_str = 'hello world'
@@ -466,6 +483,7 @@ my_str = 'hello world'
 ends_with_world = my_str.endswith('world')
 print(ends_with_world)  # True
 ```
+#### `find()`
 - `find(substring)`：返回子字符串**首次**出现的位置，如果未找到则返回 -1。
 ```ruby
 my_str = 'hello world'
@@ -473,6 +491,7 @@ my_str = 'hello world'
 world_index = my_str.find('world')
 print(world_index)  # 6
 ```
+#### `count()`
 - `count(substring)`：返回子字符串在字符串中出现的次数。
 ```ruby
 my_str = 'hello world'
@@ -480,6 +499,7 @@ my_str = 'hello world'
 o_count = my_str.count('o')
 print(o_count)  # 2
 ```
+#### `capitalize`
 - `capitalize()`：返回一个新字符串，首字母大写，其余字符小写。
 ```ruby
 my_str = 'hello world'
@@ -487,6 +507,7 @@ my_str = 'hello world'
 capitalized_my_str = my_str.capitalize()
 print(capitalized_my_str)  # Hello world
 ```
+#### `isupper`
 - `isupper()`：如果字符串中的所有字母都是大写，则返回 True，否则返回 False。
 ```ruby
 my_str = 'hello world'
@@ -494,6 +515,7 @@ my_str = 'hello world'
 is_all_upper = my_str.isupper()
 print(is_all_upper)  # False
 ```
+#### `islower`
 - `islower()`：如果字符串中的所有字母都是小写，则返回 True，否则返回 False。
 ```ruby
 my_str = 'hello world'
@@ -501,6 +523,7 @@ my_str = 'hello world'
 is_all_lower = my_str.islower()
 print(is_all_lower)  # True
 ```
+#### `title`
 - `title()`: 返回一个新字符串，其中每个单词的首字母大写。
 ```ruby
 my_str = 'hello world'
@@ -529,8 +552,8 @@ product_ints = my_int_1 * my_int_2
 div_ints = my_int_1 / my_int_2
 ```
 ```ruby
-my_float_1 = 50
-my_float_2 = 2
+my_float_1 = 50.0
+my_float_2 = 2.2
 #加
 sum_ints = my_float_1 + my_float_2
 #减
@@ -550,7 +573,7 @@ sum_int_and_float = my_int + my_float
 print(sum_int_and_float) # 61.4
 print(type(sum_int_and_float)) # <class 'float'>
 ```
-#### 取模运算%
+#### 取模运算`%`
 ```ruby
 my_int_1 = 56
 my_int_2 = 12
@@ -572,7 +595,7 @@ print('Float Modulo:', mod_floats) # Float Modulo: 1.1999999999999993
 #Python：-7 - 3 * (-3) = 2 （数学上的取模 Modulo）
 #C / C++ / Java / JS：-7 - 3 * (-2) = -1（计算机中的取余 Remainder）
 ```
-#### 整除运算符//
+#### 整除运算符`//`
 取计算结果的最小整数，例如
 ```ruby
 my_int_1 = 14
@@ -582,11 +605,329 @@ my_float_1 = 5.4
 my_float_2 = 12.0
 floor_div_floats = my_float_2 // my_float_1 #2.0
 ```
-#### 幂运算**
-幂运算将一个数提升到另一个数的幂，使用双星号操作符（**）:
+#### 幂运算`**`
+幂运算将一个数提升到另一个数的幂，使用双星号操作符（`**`）:
 ```ruby
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 =======
 >>>>>>> 57f3a2f (first commit)
 ```
+=======
+my_int_1 = 2
+my_int_2 = 3
+
+my_float_1 = 2.0
+my_float_2 = 3.0
+
+exp_ints = my_int_1 ** my_int_2
+exp_floats = my_float_1 ** my_float_2
+
+print('Integer Exponentiation:', exp_ints) # Integer Exponentiation: 8
+print('Float Exponentiation:',  exp_floats) # Float Exponentiation: 8.0
+```
+
+有时，你可能会注意到涉及浮点数的运算结果小数位数比预期的更多。例如，0.1 + 0.2 的和为 0.30000000000000004，而不是 0.3。
+这是因为数字以二进制格式存储，而某些分数无法在二进制中精确表示。因此，它们以有限近似值的形式存储，就像分数1/3无法用有限个十进制数字表示，并在无限小数部分（0.33333...）的某一位后被截断一样。
+**这会导致微小的舍入误差。**
+
+#### 整数、浮点数类型之间的切换
+Python 提供了内置函数，可将数值数据或字符串转换为整数或浮点数。
+##### `float()`函数返回由给定数字构造的浮点数
+```ruby
+my_int_56 = 56
+my_float_56 = float(my_int_1)
+
+print(my_float_56)  # 56.0
+print(type(my_float_56))  # <class 'float'>
+```
+##### `int()`函数返回由给定数字构造的整数：
+```ruby
+my_float = 12.92563
+my_int = int(my_float)
+
+print(my_int)  # 12
+print(type(my_int))  # <class 'int'>
+```
+同样，你可以使用相同的内置函数将string转换为float或integer：
+```ruby
+my_str_int = '45'
+my_str_float = '7.8'
+
+converted_int = int(my_str_int)
+converted_float = float(my_str_float)
+
+print(converted_int, type(converted_int))  # 45 <class 'int'>
+print(converted_float, type(converted_float))  # 7.8 <class 'float'>
+```
+#### Python的数学方法
+##### `round()`：将数字四舍五入到指定的小数位数。
+```ruby
+my_int_1 = 4.798
+my_int_2 = 4.253
+
+rounded_int_1 = round(my_int_1)
+rounded_int_2 = round(my_int_2, 1)
+
+print(rounded_int_1) # 5
+print(rounded_int_2) # 4.3
+```
+##### `abs()`：返回一个数的绝对值，
+```ruby
+num = -15
+
+absolute_value = abs(num)
+print(absolute_value) # 15
+```
+##### `pow()`：将一个数提升到另一个数的幂，或执行模指数运算。
+```ruby
+result_1 = pow(2, 3)  # Equivalent to 2 ** 3
+print(result_1)  # 8
+
+result_2 = pow(2, 3, 5)  # (2 ** 3) % 5
+print(result_2)  # 3
+```
+
+#### 增强赋值
+增强赋值的基本语法如下：
+```ruby
+variable `+`/`-`/`*`/`/`= value
+```
+增强赋值比以下的运算方式更高效：
+```ruby
+variable = variable `+`/`-`/`*`/`/` value
+```
+增强赋值的优势在于，它是一种简洁且易于阅读的方式来更新变量值，而无需重复变量名。这样一来，可以减少冗余，并降低因拼写错误或其他类似情况导致的潜在错误。
+例如：
+```ruby
+my_var = 10
+my_var += 5
+print(my_var) # 15
+
+count = 14
+count -= 3
+print(count) # 11
+
+product = 65
+product *= 7
+print(product) # 455
+
+price = 100
+price /= 4
+print(price) # 25.0
+
+#整除法运算符（//=）将左侧变量除以右侧变量，并将结果存储回左侧变量：
+total_pages = 23
+total_pages //= 5
+print(total_pages) # 4
+
+#取模赋值运算符（% =）计算左侧变量除以右侧变量的余数，并将结果存储回左侧变量：
+bits = 35
+bits %= 2
+print(bits) # 1
+
+#幂运算赋值操作符（**=）将左侧变量的值提升到右侧变量的幂次，并将结果重新存储回左侧变量：
+power = 2
+power **= 3
+print(power) # 8
+
+#加法赋值运算符可以轻松地连接字符串：
+greet = 'Hello'
+greet += ' World'
+print(greet) # Hello World
+
+#而乘法赋值运算符可用于重复字符串：
+greet = 'Hello'
+greet *= 3
+print(greet) # HelloHelloHello
+
+#其他增强型作业在与字符串一起使用时会抛出 TypeError：
+greet = 'Hello'
+greet -= ' World'
+print(greet) # TypeError: unsupported operand type(s) for -=: 'str' and 'str'
+
+greet = 'Hello'
+greet /= 'World'
+print(greet) # TypeError: unsupported operand type(s) for /=: 'str' and 'str' 
+```
+---
+
+### 条件语句和逻辑运算符
+#### 布尔值
+`True` or `False`
+
+#### 比较运算符
+
+`==`等于
+`!=`不等于
+`>`大于
+`<`小于
+`>=`大于等于
+`<=`小于等于
+
+#### `if`条件语句
+基本语法：
+```ruby
+if condition:#if 表达式
+    pass # 如果条件为真，则执行以下代码
+```
+在上面的例子中，`if`语句的主体包含一个`pass`语句。当执行`pass`语句时，不会发生任何操作。这是一个特殊的关键词，可用作未来代码的占位符，在不允许空代码块的情况下非常有用。
+
+if 语句体内的代码仅在条件评估为 True 时才会执行。例如：
+```ruby
+age = 18
+
+if age >= 18:
+    print('You are an adult') # 你成年了
+```
+当if条件为假时，就会执行else语句。以下是if...else语句的语法：
+```ruby
+if condition:
+   pass # Code to execute if condition is True
+else:
+   pass # Code to execute if condition is False
+```
+例如：
+```ruby
+age = 12
+
+if age >= 18:
+    print('You are an adult')
+else:
+    print('You are not an adult yet') # 你还没成年
+```
+在某些情况下，您可能需要考虑多个条件。为此，Python 允许您通过使用 `elif`（即 `else` `if`）关键字来扩展 `if` 语句。以下是语法：
+```ruby
+if condition1:
+   pass # Code to execute if condition1 is True
+elif condition2:
+   pass # 如果condition1错了condition2对了将会继续
+else:
+   pass # Code to execute if all conditions are False
+```
+例如：
+```ruby
+age = 12
+
+if age >= 18:
+    print('You are an adult')
+elif age >= 13:
+    print('You are a teenager')
+else:
+    print('You are a child') # You are a child
+```
+你可以使用任意数量的 elif 语句：
+```bash
+age = 2
+
+if age >= 65:
+    print('You are a senior citizen')
+elif age >= 30:
+    print('You are an adult in your prime')
+elif age >= 18:
+    print('You are a young adult')
+elif age >= 13:
+    print('You are a teenager')
+elif age >= 3:
+    print('You are a young child')
+else:
+    print('You are a toddler or an infant') # 你是幼儿或婴儿
+```
+
+#### 什么是真值和假值
+在 Python 中，每个值都有一个固有的布尔值，即在逻辑上下文中是否应被视为 True 或 False。许多值被认为是“真值”，也就是说，在逻辑上下文中它们的评估结果为 True；而其他值则为“假值”，意味着它们的评估结果为 False。
+以下是一些假值：
+- `None`   
+- `False`   
+- Integer 0 
+- Float 0.0 
+- Empty strings "" 
+其他值，如非零数字和非空字符串，都是真值。
+
+如果你想检查一个值是真值还是假值，可以使用内置的 `bool()` 函数。它会将值显式转换为其布尔等价形式，对于真值返回 True，对于假值返回 False。以下是一些示例：
+```ruby
+print(bool(False)) # False
+print(bool(0))  # False
+print(bool('')) # False
+
+print(bool(True)) # True
+print(bool(1)) # True
+print(bool('Hello')) # True
+```
+#### 逻辑运算符
+如果你在处理更复杂的条件语句，就可以使用 Python 的`and`、`or`、`not`运算符。
+##### `and`
+`and`接收两个操作数，如果第一个操作数为假，则返回第二个操作数，否则返回第一个操作数。只有当两个操作数都为真时，表达式的结果才为真。
+例如：
+```ruby
+is_citizen = True
+age = 25
+print(is_citizen and age) # 25
+```
+在上述示例中，数字25会被打印到终端，因为“and”运算符会在第一个操作数为真时对第二个操作数进行求值。这种运算符被称为**短路运算符**。短路意味着Python会从左到右检查各值，并在确定最终结果后立即停止。
+
+你经常会在 `if` 语句中使用`and`来检查多个条件是否满足。以下是将前面的例子重构为使用“和”运算符，而不是嵌套的 `if` 语句的方法：
+```ruby
+is_citizen = True
+age = 25
+
+if is_citizen and age >= 18:
+    print('You are eligible to vote') # You are eligible to vote
+else:
+    print('You are not eligible to vote')
+```
+替代了下面的写法：
+```ruby
+is_citizen = True
+age = 25
+
+if is_citizen:
+    if age >= 18:
+        print('You are eligible to vote') # You are eligible to vote
+else:
+    print('You are not eligible to vote')
+```
+##### `or`
+该运算符如果第一个操作数为`True`，就返回第一个操作数，否则返回第二个操作数。当至少有一个操作数为`True`时，或表达式的结果就是真值。或运算符也被称为**短路运算符**。以下是一个示例：
+```ruby
+age = 19
+is_employed = False
+
+print(age or is_employed) # 19
+```
+如果需要检查一个或多个表达式是否为真，可以使用 `or` 运算符进行条件判断，例如：
+```ruby
+age = 19
+is_student = True
+
+if age < 18 or is_student:
+    print('You are eligible for a student discount') # You are eligible for a student discount
+else:
+    print('You are not eligible for a student discount')
+```
+在这种情况下，年龄小于18为`False`，但`is_student`为`True`。由于至少有一个条件为真，整个表达式的结果为True，因此`if`语句块中的学生折扣信息会被打印出来。
+##### `not`
+它接受一个操作数并反转其布尔值。它会将真值转换为`False`，将假值转换为True。与之前讨论过的操作符不同，`not`并不总是返回`True`或`False`。例如：
+```ruby
+print(not '') # True, because empty string is falsy
+print(not 'Hello') # False, because non-empty string is truthy
+print(not 0) # True, because 0 is falsy
+print(not 1) # False, because 1 is truthy
+print(not False) # True, because False is falsy
+print(not True) # False, because True is truthy
+```
+在条件语句中，通常使用`not`操作符来检查某事物是否为真或假，例如：
+```ruby
+is_admin = False
+
+if not is_admin:
+    print('Access denied for non-administrators.') # 非管理员无权访问.
+else:
+    print('Welcome, Administrator!')
+```
+由于 `is_admin` 为 `False`，那么 `not is_admin` 就表示非 `False`，即 `True`。因此会打印出“非管理员无权访问”的提示信息。
+
+---
+
+>>>>>>> 00dee3c (first commit)

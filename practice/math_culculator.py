@@ -1,4 +1,4 @@
-# Python 计算器
+# 数学计算器
 operater = input("please input operater(+,-,*,/) : ")
 num1 = int(input("num1 : "))
 num2 = int(input("num2 : "))
@@ -17,4 +17,3 @@ elif operater == "/":
     print(f"{num1} / {num2} = {result}")
 else:
     print(f"{operater} it's not a operater")
-    
