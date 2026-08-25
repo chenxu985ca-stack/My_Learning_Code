@@ -10,7 +10,7 @@
  
 下面这两个是我自己搭建的公司官方手册网站、销售助手网站：
 [西湖巴尔官方手册网站](http://cunxiaziyou.cn/biomaterial/index.html)
-[西湖巴尔销售助手网站]([:///Users/lee/AI/xihu_sales/index.htmlfile](https://chenxu985ca-stack.github.io/xihu_sales/index.html))
+[西湖巴尔销售助手网站]((https://chenxu985ca-stack.github.io/xihu_sales/index.html))
 
 正如李笑来老师曾说
 > [!NOTE]
@@ -58,7 +58,32 @@ function add(x, y) {
   return x + y
 }
 ```
+| First Header                | Second Header                |
+| --------------------------- | ---------------------------- |
+| Content from cell 1         | Content from cell 2          |
+| Content in the first column | Content in the second column |
+
 ~~这样说话会被删除~~
+*[HTML]: Hyper Text Markup Language
+*[W3C]: World Wide Web Consortium
+The HTML specification
+is maintained by the W3C.
+
+
+
+
+
+[[Note]]                       <!-- 链接到 Note（默认解析为 Note.md） -->
+[[Note|显示文本]]              <!-- 自定义显示文本的链接 -->
+[[Note#Heading]]               <!-- 链接到 Note 中的某个标题 -->
+
+![[Note]]                      <!-- 嵌入整篇笔记 -->
+![[Note#Heading]]              <!-- 仅嵌入对应的标题小节 -->
+![[Note^block-id]]             <!-- 仅嵌入对应的块 -->
+![[Note|要显示的标题]]         <!-- 嵌入并自定义显示标题 -->
+![[image.png]]                 <!-- 普通图片嵌入（支持各种图片扩展名） -->    
+
+
 
 学习Markdownown[^1]
 [^1]:学习Markdownown笔记

@@ -1,4 +1,4 @@
-## Python基础
+## Python基础[^1]
 ### 什么是Python？
 Python 是一种通用编程语言，以其简洁和易用性而著称。
 #### 用途
@@ -914,6 +914,7 @@ print(not True) # False, because True is truthy
 ```ruby
 is_admin = False
 
+
 if not is_admin:
     print('Access denied for non-administrators.') # 非管理员无权访问.
 else:
@@ -921,6 +922,5 @@ else:
 ```
 由于 `is_admin` 为 `False`，那么 `not is_admin` 就表示非 `False`，即 `True`。因此会打印出“非管理员无权访问”的提示信息。
 
----
 
-
+[^1]:资料来源：[FreeCodeCamp](https://www.freecodecamp.org/learn)
