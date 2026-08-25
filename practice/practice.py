@@ -40,13 +40,8 @@ print(split_words)
 
 user_id = "chenxu-985-ca"
 print(user_id[-4:])
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
 print("Hello, World")
->>>>>>> 57f3a2f (first commit)
-=======
 
 print("Hello, World")
 
@@ -73,4 +68,3 @@ exp_floats = my_float_1 ** my_float_2
 
 print('Integer Exponentiation:', exp_ints)  # Integer Exponentiation: 8
 print('Float Exponentiation:',  exp_floats)  # Float Exponentiation: 9.0
->>>>>>> 00dee3c (first commit)
