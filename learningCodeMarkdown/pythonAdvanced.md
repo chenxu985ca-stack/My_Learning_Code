@@ -335,7 +335,7 @@ ValueError: 'JavaScript' is not in list
 ```
 
 ### 元组(Tuples)
-元组是一种Python数据类型，用于创建有序的值序列。元组可以包含混合的数据类型，例如：
+元组是一种Python数据类型，用于创建有序的值序列。元组可以包含**混合**的数据类型，例如：
 ```ruby
 developer = ('Alice', 34, 'Rust Developer')
 ```
@@ -402,6 +402,7 @@ name, *rest = developer
 print(name) # 'Alice'
 print(rest) # [34, 'Rust Developer']
 ```
+#### 切片元组
 与列表类似，你也可以使用切片操作符对元组进行切取，以提取其中的一部分。以下是一个将“pie”和“cookies”两个元素提取到单独元组中的示例：
 ```ruby
 desserts = ('cake', 'pie', 'cookies', 'ice cream')
@@ -419,7 +420,7 @@ Traceback (most recent call last):
 TypeError: "tuple" object doesn't support item deletion
 ```
 #### 什么情况下应该使用元组而不是列表？
-如果你需要一个动态的元素集合，可以添加、删除和更新元素，那么应该使用列表。如果你知道要处理的是固定且不可变的数据集合，则应使用元组。
+如果你需要一个动态的元素集合，可以添加、删除和更新元素，那么应该使用列表。如果你知道要处理的是**固定且不可变的**数据集合，则应使用元组。
 ### 元组的常用方法
 #### `count()`
 我们首先介绍的方法是 `count()`。该方法用于确定某个元素在元组中出现的次数。以下是一个示例，用于检查字符串 "Rust" 在名为 programming_languages 的元组中出现了多少次,如果不存在，则显示为0，如果未向 `count()` 函数传递任何参数，Python 将抛出 TypeError：：
@@ -429,7 +430,7 @@ programming_languages.count('Rust') # 2
 programming_languages.count('JavaScript') # 0
 ```
 #### `index()`
-接下来要介绍的方法是 `index()` 方法。该方法用于查找元组中某个特定元素的位置索引。以下是一个使用 `index()` 方法查找字符串 "Java" 索引的示例,如果指定的项目未找到，Python 将抛出 ValueError：
+接下来要介绍的方法是 `index()` 方法。该方法用于查找元组中某个特定元素的位置索引。以下是一个使用 `index()` 方法查找字符串 "`Java`" 索引的示例,如果指定的项目未找到，Python 将抛出 ValueError：
 
 ：
 ```ruby
@@ -437,7 +438,7 @@ programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust')
 programming_languages.index('Java') # 1
 ```
 
-在下面这个例子中，我们指定了搜索字符串“Python”的起始位置。通过将数字3作为`index()`函数的第二个参数传入，我们指定从索引3开始搜索。由于元组中Python出现了两次，因此由于使用了可选的起始索引参数，`index()`函数会返回索引5，而不是索引2。
+在下面这个例子中，我们指定了搜索字符串“Python”的起始位置。通过将数字3作为`index()`函数的第二个参数传入，我们指定从索引3开始搜索。由于元组中Python出现了两次，因此由于使用了可选的起始索引参数，`index()`函数会返回索引`5`，而不是索引`2`。
 ```ruby
 programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
 programming_languages.index('Python', 3) # 5
@@ -455,7 +456,7 @@ sorted(numbers) # [2, 3, 7, 13, 18, 45, 67, 78]
 ```
 `sorted()` 函数总是会创建一个包含已排序值的新列表。这与 `sort()` 方法不同，`sort()` 方法会就地对列表元素进行排序，并且不会返回新列表。
 
-如果需要自定义可迭代对象的排序行为，可以使用可选的 reverse 和 key 参数。以下是一个使用 key 参数按元组中元素长度进行排序的例子：
+如果需要自定义可迭代对象的排序行为，可以使用可选的 `reverse` 和 `key` 参数。以下是一个使用 `key` 参数按元组中元素长度进行排序的例子：
 ```ruby
 programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
 sorted(programming_languages, key=len)
@@ -463,7 +464,7 @@ sorted(programming_languages, key=len)
 # Result
 # ['C++', 'Rust', 'Java', 'Rust', 'Python', 'Python']
 ```
-如果你想创建一个按逆序排列的新值列表，可以使用 reverse 参数如下：
+如果你想创建一个按逆序排列的新值列表，可以使用 `reverse` 参数如下：
 ```ruby
 programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust', 'Python')
 
@@ -475,3 +476,158 @@ print(sorted(programming_languages, reverse=True))
 
 ### 循环
 #### `for`循环
+用于遍历一个序列（如[列表]、(元组)或""字符串""），并对序列中的每个元素执行一段代码。
+基本语法：
+```ruby
+fruits = ['apple','banana','orange','pinapple']
+for fruit in fruits:
+    print(fruit)
+#apple
+#banana
+#orange
+#pinapple
+```
+也可以使用 `for` 循环来遍历其他可迭代对象，例如字符串。以下是一个使用 `for` 循环遍历字符串并打印每个字符的示例：
+```ruby
+for char in 'code':
+    print(char)
+#c
+#o
+#d
+#e
+```
+在 Python 中可以嵌套循环。以下是一个嵌套 `for` 循环的例子：
+```ruby
+categories = ['Fruit', 'Vegetable']
+foods = ['Apple', 'Carrot', 'Banana']
+
+for category in categories:
+    for food in foods:
+        print(category, food)
+
+#Fruit Apple
+#Fruit Carrot
+#Fruit Banana
+#Vegetable Apple
+#Vegetable Carrot
+#Vegetable Banana
+```
+#### `while` 循环
+在 Python 中，另一种可以使用的循环是 `while` 循环。这种循环会重复执行一段代码块，直到条件为 `False` 为止。以下是一个使用 `while` 循环进行猜数字游戏的例子：
+```ruby
+secret_number = 3
+guess = 0
+
+while guess != secret_number:
+    guess = int(input('Guess the number (1-5): '))
+    if guess != secret_number:
+        print('Wrong! Try again.')
+
+print('You got it!')
+```
+##### `break`和 `continue`
+`break` 语句用于终止循环的执行。以下是一个使用 `break` 语句处理 developer_names 列表的示例：
+```ruby
+developer_names = ['Jess', 'Naomi', 'Tom']
+
+for developer in developer_names:
+    if developer == 'Naomi':
+        break
+    print(developer)
+#output:
+#Jess
+```
+`continue` 语句用于跳过当前循环的迭代，直接进入下一次迭代。我们来修改之前的示例，用 `continue` 语句代替 `break`:
+```ruby
+developer_names = ['Jess', 'Naomi', 'Tom']
+
+for developer in developer_names:
+    if developer == 'Naomi':
+        continue
+    print(developer)
+```
+现在控制台的结果会有所不同。由于 `continue` 语句在开发者等于 Naomi 时跳过循环的第二次迭代，因此 Naomi 的名字不会被打印到控制台。
+##### `else`
+`for` 循环和 `while` 循环都可以与 `else` 语句结合使用，只有当循环未被 `break` 语句终止时，才会执行 `else` 语句。以下是一个使用多个 `for` 循环的示例：
+```ruby
+words = ['sky', 'apple', 'cook', 'fly', 'orange']
+
+for word in words:
+    for letter in word:
+        if letter.lower() in 'aeiou':
+            print(f"'{word}' contains the vowel '{letter}'")
+            break
+    else:
+        print(f"'{word}' has no vowels")
+```
+#### `range()`函数
+`range()` 函数用于生成一串整数。以下是 `range()` 函数的基本语法：
+
+```ruby
+range(start, stop, step)
+```
+`range()`最低接受一个参数，即`stop`参数，传入的`stop`参数必须是整数，如果填写为空或者`float`数，你将会获得一个TypeError报错。
+默认情况下，整数序列将按1递增。但如果你想更改此默认值，可以使用可选的步长参数。以下是一个生成2到10之间偶数序列的例子：
+```ruby
+for num in range(2, 11, 2):
+    print(num)
+```
+如果你想生成一个递减的整数序列，可以使用负整数作为步长参数，例如：
+```ruby
+for num in range(40, 0, -10):
+    print(num)
+```
+`range` 对象是不可变的，这意味着创建后无法更改。而列表是可变的，因此可以修改其值.
+要生成整数列表，可将范围传递给` list()` 构造函数。`list()` 构造函数会将可迭代对象转换为列表。以下是一个生成 2 到 10 之间偶数列表的示例：
+```ruby
+numbers = list(range(2, 11, 2))
+print(numbers) # [2, 4, 6, 8, 10]
+```
+
+### `enumerate()` 和 `zip()`函数
+#### `enumerate()`
+用于遍历序列，并记录序列中每个元素的索引。`enumerate()` 函数接受一个可迭代对象作为参数，返回一个枚举对象，其中包含可迭代对象中每个元素的索引和值。
+```ruby
+languages = ['Spanish', 'English', 'Russian', 'Chinese']
+
+for index, language in enumerate(languages):
+    print(f'Index {index} and language {language}')
+
+# Result
+# Index 0 and language Spanish
+# Index 1 and language English
+# Index 2 and language Russian
+# Index 3 and language Chinese
+```
+enumerate() 函数也可以在 for 循环之外使用：
+```ruby
+languages = ['Spanish', 'English', 'Russian', 'Chinese']
+
+print(list(enumerate(languages)))
+# [(0, 'Spanish'), (1, 'English'), (2, 'Russian'), (3, 'Chinese')]
+```
+`enumerate()` 函数还接受一个可选的 `start` 参数，用于指定计数的起始值。如果省略此参数，则计数从 `0` 开始。
+
+#### `zip()`
+用于并行遍历多个可迭代对象。以下是一个使用 `zip()` 函数遍历`developers`和 `ID` 的示例：
+```ruby
+developers = ['Naomi', 'Dario', 'Jessica', 'Tom']
+ids = [1, 2, 3, 4]
+
+for name, dev_id in zip(developers, ids):
+    print(f'Name: {name}')
+    print(f'ID: {dev_id}')
+
+"""
+Result
+
+Name: Naomi
+ID: 1
+Name: Dario
+ID: 2
+Name: Jessica
+ID: 3
+Name: Tom
+ID: 4
+"""
+```
