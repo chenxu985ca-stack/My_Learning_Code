@@ -19,7 +19,7 @@ def create_character(name, strength, intelligence, charisma):
         return 'All stats should be no more than 4'
     if strength + intelligence + charisma != 7:
         return 'The character should start with 7 points'
-    return f'{name}\nSTR{strength * full_dot + empty_dot * (10 - strength)}\nINT{intelligence * full_dot + empty_dot * (10 - intelligence)}\nCHA{charisma * full_dot + empty_dot * (10 - charisma)}'
+    return f'{name}\nSTR{strength * full_dot + empty_dot * (5 - strength)}\nINT{intelligence * full_dot + empty_dot * (5 - intelligence)}\nCHA{charisma * full_dot + empty_dot * (5 - charisma)}'
 
 
-print(create_character('ren', 4, 2, 1))
+print(create_character('ren', 3, 2, 2))

@@ -179,6 +179,35 @@ print(isinstance(3, str)) # False
 ```
 ---
 
+### *args
+将接收到的所有参数作为一个`Tuple`
+重要的不是args，而是*
+举例：
+```ruby
+def add(*args):
+    sum = 0
+    for i in args:
+        sum += i
+    return sum
+
+
+print(add(1, 3, 4, 4, 4))
+```
+### **kwargs
+将接收到的所有参数作为一个`Dictionary`
+重要的不是kwargs，而是**
+例如：
+```ruby
+def hello(**kwargs):
+    print("hello", end=" ")
+    for key, value in kwargs.items():
+        print(value, end=' ')
+
+
+hello(title='Mr.', first='Bro', last='Code')
+```
+
+
 ## 循环和序列
 ### 列表[`list`]
 列表数据类型是一种**有序**的元素序列，可以包含字符串、数字，甚至其他列表。列表是可变的，并采用零基索引，即列表的第一个元素位于索引为零的位置。
@@ -370,7 +399,7 @@ Traceback (most recent call last):
 IndexError: list index out of range
 """
 ```
-#### tuple()构造函数
+#### `tuple()`构造函数
 另一种创建元组的方法是使用 `tuple()` 构造函数，如下所示：
 ```ruby
 developer = 'Jessica'
@@ -423,7 +452,7 @@ TypeError: "tuple" object doesn't support item deletion
 如果你需要一个动态的元素集合，可以添加、删除和更新元素，那么应该使用列表。如果你知道要处理的是**固定且不可变的**数据集合，则应使用元组。
 ### 元组的常用方法
 #### `count()`
-我们首先介绍的方法是 `count()`。该方法用于确定某个元素在元组中出现的次数。以下是一个示例，用于检查字符串 "Rust" 在名为 programming_languages 的元组中出现了多少次,如果不存在，则显示为0，如果未向 `count()` 函数传递任何参数，Python 将抛出 TypeError：：
+我们首先介绍的方法是 `count()`。该方法用于确定某个元素在元组中出现的次数。以下是一个示例，用于检查字符串 "`Rust`" 在名为 programming_languages 的元组中出现了多少次,如果不存在，则显示为0，如果未向 `count()` 函数传递任何参数，Python 将抛出 TypeError：：
 ```ruby
 programming_languages = ('Rust', 'Java', 'Python', 'C++', 'Rust')
 programming_languages.count('Rust') # 2
@@ -476,7 +505,7 @@ print(sorted(programming_languages, reverse=True))
 
 ### 循环
 #### `for`循环
-用于遍历一个序列（如[列表]、(元组)或""字符串""），并对序列中的每个元素执行一段代码。
+用于遍历一个序列（如[列表]、(元组)或"字符串"），并对序列中的每个元素执行一段代码。
 基本语法：
 ```ruby
 fruits = ['apple','banana','orange','pinapple']
@@ -526,7 +555,7 @@ while guess != secret_number:
 print('You got it!')
 ```
 ##### `break`和 `continue`
-`break` 语句用于终止循环的执行。以下是一个使用 `break` 语句处理 developer_names 列表的示例：
+`break` 语句用于终止循环的执行。以下是一个使用 `break` 语句处理 `developer_names` 列表的示例：
 ```ruby
 developer_names = ['Jess', 'Naomi', 'Tom']
 
@@ -599,7 +628,7 @@ for index, language in enumerate(languages):
 # Index 2 and language Russian
 # Index 3 and language Chinese
 ```
-enumerate() 函数也可以在 for 循环之外使用：
+`enumerate()` 函数也可以在 `for` 循环之外使用：
 ```ruby
 languages = ['Spanish', 'English', 'Russian', 'Chinese']
 
@@ -631,3 +660,5 @@ Name: Tom
 ID: 4
 """
 ```
+
+### 使用字典（dictionary）和集合（set）

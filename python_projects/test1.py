@@ -1,13 +1,13 @@
-def number_pattern(n):
-    number = "1"
-    if isinstance(n, int):
-        if n > 0:
-            for i in range(2, n + 1):
-                number += f" {i}"
-            return number
-        else:
-            return "Argument must be an integer greater than 0."
-    return "Argument must be an integer value."
+# 将类作为参数传递的方式
+class CarColor:
+    color = None
 
 
-print(number_pattern(1))
+def chage_color(car, color):
+    car.color = color
+
+
+car_1 = CarColor()
+
+chage_color(car_1, "red")
+print(car_1.color)
