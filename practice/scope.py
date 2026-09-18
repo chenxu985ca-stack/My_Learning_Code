@@ -1,3 +1,6 @@
+# 作用域遵循LEBG原则，L > E > G > B
+# 也就是说，在调用时，L的优先级最高，B的优先级最低
+
 def outer_func():
     msg = 'Hello there!'
     res = ""  # 在外层作用域中声明res
